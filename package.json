@@ -1,0 +1,17 @@
+{
+  "name": "webviewer-annotations-php-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npm run download-webviewer && npm run add-license",
+    "download-webviewer": "node scripts/download-webviewer.js",
+    "add-license": "node scripts/add-license.js"
+  },
+  "author": "PDFTron Systems Inc.",
+  "devDependencies": {
+    "btoa": "^1.2.1",
+    "download": "^7.1.0",
+    "fs-extra": "^7.0.1"
+  }
+}
