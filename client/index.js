@@ -22,7 +22,7 @@ viewerElement.addEventListener('ready', function() {
         // widgets and links will remain in the document without changing so it isn't necessary to export them
         var xfdfString = annotManager.exportAnnotations({ links: false, widgets: false });
         saveXfdfString(DOCUMENT_ID, xfdfString).then(function() {
-          alert('Anntations saved successfully.');
+          alert('Annotations saved successfully.');
         });
       }
     });
