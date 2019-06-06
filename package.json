@@ -9,6 +9,7 @@
   },
   "author": "PDFTron Systems Inc.",
   "devDependencies": {
+    "@pdftron/webviewer-downloader": "^1.0.7",
     "btoa": "^1.2.1",
     "download": "^7.1.0",
     "fs-extra": "^7.0.1"
