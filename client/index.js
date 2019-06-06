@@ -1,7 +1,6 @@
 var viewerElement = document.getElementById('viewer');
 var viewer = new PDFTron.WebViewer({
   path: 'lib',
-  l: atob(window.licenseKey), // Using atob(https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/atob) to read encoded license key (see add-license.js for encryption)
   initialDoc: 'https://pdftron.s3.amazonaws.com/downloads/pl/webviewer-demo.pdf',
 }, viewerElement);
 var viewerInstance = null;
