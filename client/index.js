@@ -17,12 +17,13 @@ WebViewer({
         // widgets and links will remain in the document without changing so it isn't necessary to export them
         annotManager.exportAnnotations({ links: false, widgets: false })
         .then(function (xfdfString) {
-          saveXfdfString(DOCUMENT_ID, xfdfString).then(function() {
+          saveXfdfString(DOCUMENT_ID, xfdfString)
+          .then(function() {
             alert('Annotations saved successfully.');
+          })
+          .catch(function () {
+            alert('Annotations not saved successfully.');
           });
-        })
-        .catch(function () {
-          alert('Annotations not saved successfully.');
         });
       }
     });
