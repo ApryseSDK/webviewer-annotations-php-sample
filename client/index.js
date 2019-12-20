@@ -34,8 +34,8 @@ WebViewer({
   instance.docViewer.on('documentLoaded', function() {
     loadXfdfString(DOCUMENT_ID).then(function(xfdfString) {
       annotManager.importAnnotations(xfdfString).then(function(annotations) {
-		annotManager.drawAnnotationsFromList(annotations); 
-	  });
+		    annotManager.drawAnnotationsFromList(annotations); 
+	    });
     });
   });
 });
