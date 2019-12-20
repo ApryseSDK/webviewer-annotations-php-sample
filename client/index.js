@@ -15,9 +15,12 @@ WebViewer({
       onClick: function() {
         // Save annotations when button is clicked
         // widgets and links will remain in the document without changing so it isn't necessary to export them
-        var xfdfString = annotManager.exportAnnotations({ links: false, widgets: false });
-        saveXfdfString(DOCUMENT_ID, xfdfString).then(function() {
-          alert('Annotations saved successfully.');
+        annotManager.exportAnnotations({ links: false, widgets: false }).then(function (xfdfString) {
+          saveXfdfString(DOCUMENT_ID, xfdfString).then(function() {
+            alert('Annotations saved successfully.');
+          }).catch(function () {
+            alert('Annotations not saved successfully.');
+          });
         });
       }
     });
@@ -27,8 +30,9 @@ WebViewer({
   // Load annotations when document is loaded
   instance.docViewer.on('documentLoaded', function() {
     loadXfdfString(DOCUMENT_ID).then(function(xfdfString) {
-      var annotations = annotManager.importAnnotations(xfdfString);
-      annotManager.drawAnnotationsFromList(annotations);
+      annotManager.importAnnotations(xfdfString).then(function(annotations) {
+        annotManager.drawAnnotationsFromList(annotations);
+      });
     });
   });
 });
@@ -37,7 +41,7 @@ WebViewer({
 // Make a POST request with XFDF string
 var saveXfdfString = function(documentId, xfdfString) {
   return new Promise(function(resolve) {
-    fetch(`/server/annotationHandler.php?documentId=${documentId}`, {
+    fetch(`../server/annotationHandler.php?documentId=${documentId}`, {
       method: 'POST',
       body: xfdfString
     }).then(function(res) {
@@ -51,7 +55,7 @@ var saveXfdfString = function(documentId, xfdfString) {
 // Make a GET request to get XFDF string
 var loadXfdfString = function(documentId) {
   return new Promise(function(resolve) {
-    fetch(`/server/annotationHandler.php?documentId=${documentId}`, {
+    fetch(`../server/annotationHandler.php?documentId=${documentId}`, {
       method: 'GET'
     }).then(function(res) {
       if (res.status === 200) {
