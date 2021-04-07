@@ -4,6 +4,7 @@ var DOCUMENT_ID = 'webviewer-demo-1';
 WebViewer({
   path: 'lib',
   initialDoc: 'https://pdftron.s3.amazonaws.com/downloads/pl/demo.pdf',
+  documentXFDFRetriever: () => loadXfdfString(DOCUMENT_ID)
 }, viewerElement).then(instance => {
   var annotManager = instance.docViewer.getAnnotationManager();
 
@@ -23,16 +24,6 @@ WebViewer({
           });
         });
       }
-    });
-  });
-
-
-  // Load annotations when document is loaded
-  instance.docViewer.on('documentLoaded', function() {
-    loadXfdfString(DOCUMENT_ID).then(function(xfdfString) {
-      annotManager.importAnnotations(xfdfString).then(function(annotations) {
-        annotManager.drawAnnotationsFromList(annotations);
-      });
     });
   });
 });
