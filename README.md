@@ -11,7 +11,6 @@ This is a WebViewer sample to show how you can save and load annotations through
 Before you begin, make sure your development environment includes [Node.js](https://nodejs.org/en/) and a PHP development environment such as [built-in CLI](http://php.net/manual/en/features.commandline.webserver.php), [XAMPP](https://www.apachefriends.org/index.html) or [AMPPS](https://www.ampps.com/).
 
 ## Install
-Note: If you are using windows, the following will only work on WSL (https://docs.microsoft.com/en-us/windows/wsl/about)
 
 ```
 git clone https://github.com/PDFTron/webviewer-annotations-php-sample.git

@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "cp -R node_modules/@pdftron/webviewer/public/* client/lib && cp node_modules/@pdftron/webviewer/webviewer.min.js client/lib"
+    "postinstall": "node tools/copy-webviewer-files.js"
   },
   "author": "PDFTron Systems Inc.",
   "devDependencies": {
     "@pdftron/webviewer": "^8.0.0"
+  },
+  "dependencies": {
+    "fs-extra": "^10.0.0"
   }
 }
