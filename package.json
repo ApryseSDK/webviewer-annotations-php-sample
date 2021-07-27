@@ -8,9 +8,9 @@
   },
   "author": "PDFTron Systems Inc.",
   "devDependencies": {
-    "@pdftron/webviewer": "^8.0.0"
+    "fs-extra": "^10.0.0"
   },
   "dependencies": {
-    "fs-extra": "^10.0.0"
+    "@pdftron/webviewer": "^8.0.0"
   }
 }
